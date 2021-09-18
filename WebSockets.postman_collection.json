@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "3f70c66b-c88c-43bb-9ec9-003c666fb476",
+		"name": "WebSockets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "Add Channel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "topic2",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "topic_2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/topics",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"topics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Add Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "client 2",
+									"type": "text"
+								},
+								{
+									"key": "url",
+									"value": "http://localhost:8000/websockets/public/",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/clients",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscriptions",
+			"item": [
+				{
+					"name": "Add subscription",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/subscribe/topic_1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"subscribe",
+								"topic_1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "Publish message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "{\"msg\":\"hello world!\"}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/publish/topic_1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"publish",
+								"topic_1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
