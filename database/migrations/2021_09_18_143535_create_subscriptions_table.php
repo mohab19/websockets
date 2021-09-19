@@ -16,10 +16,10 @@ class CreateSubscriptionsTable extends Migration
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('channel_id');
-            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->foreign('channel_id')->references('id')->on('channels');
-            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

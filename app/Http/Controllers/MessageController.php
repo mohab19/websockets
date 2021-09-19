@@ -9,7 +9,7 @@ use App\Events\NewMessage;
 
 use App\Models\Message;
 use App\Models\Channel;
-use App\Models\Client;
+use App\Models\User;
 
 class MessageController extends Controller
 {
@@ -42,14 +42,14 @@ class MessageController extends Controller
     public function store(Channel $channel, MessageRequest $request)
     {
         try {
-            $client = Client::findOrFail($request->client_id);
+            $user   = User::findOrFail($request->user_id);
             $create = Message::create([
                 'body'       => $request->body,
                 'channel_id' => $channel->id,
-                'client_id'  => $client->id,
+                'user_id'    => $user->id,
             ]);
 
-            event(new NewMessage($create));
+            broadcast(new NewMessage($create));
 
             $data = array(
                 'topic' => $channel->slug,

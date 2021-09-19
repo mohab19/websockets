@@ -24,7 +24,7 @@ class SubscriptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'client_id' => 'required|numeric'
+            'user_id' => 'required|numeric'
         ];
     }
 }

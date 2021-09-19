@@ -6,7 +6,7 @@ use App\Http\Requests\SubscriptionRequest;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use App\Models\Channel;
-use App\Models\Client;
+use App\Models\User;
 
 class SubscriptionController extends Controller
 {
@@ -39,10 +39,17 @@ class SubscriptionController extends Controller
     public function store(Channel $channel, SubscriptionRequest $request)
     {
         try {
-            $client = Client::findOrFail($request->client_id);
+            $user       = User::findOrFail($request->user_id);
+            $subscribed = Subscription::where('user_id', $user->id)->where('channel_id', $channel->id)->first();
+            if($subscribed) {
+                return response()->json([
+                    'message' => 'error',
+                    'data'    => 'already subscribed!',
+                ]);
+            }
             $create = Subscription::create([
                 'channel_id' => $channel->id,
-                'client_id'  => $client->id,
+                'user_id'    => $user->id,
             ]);
 
             return response()->json([

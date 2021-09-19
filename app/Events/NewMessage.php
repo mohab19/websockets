@@ -35,7 +35,7 @@ class NewMessage implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new Channel($this->message->Channel->slug);
+        return new PrivateChannel('topic.'.$this->message->Channel->slug);
     }
 
     public function broadcastWith()

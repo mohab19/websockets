@@ -17,7 +17,7 @@ class Message extends Model
     protected $fillable = [
         'body',
         'channel_id',
-        'client_id',
+        'user_id',
     ];
 
     public function Channel()

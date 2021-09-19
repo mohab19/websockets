@@ -24,8 +24,8 @@ class MessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'       => 'required|json',
-            'client_id'  => 'required|numeric',
+            'body'     => 'required|json',
+            'user_id'  => 'required|numeric',
         ];
     }
 }

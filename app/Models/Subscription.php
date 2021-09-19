@@ -16,6 +16,16 @@ class Subscription extends Model
      */
     protected $fillable = [
         'channel_id',
-        'client_id',
+        'user_id',
     ];
+
+    public function Channel()
+    {
+        return $this->belongsTo(Channel::class);
+    }
+
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
