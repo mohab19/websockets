@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <div class="text-center">
+                        @foreach($channels as $key => $channel)
+                            <a href="{{route('topic', $channel->slug)}}" class="topic">{{$channel->name}}</a>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

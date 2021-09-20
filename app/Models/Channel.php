@@ -29,9 +29,9 @@ class Channel extends Model
        return 'slug';
     }
 
-    public function Subscriptions()
+    public function Subscription()
     {
-        return $this->HasMany(Subscription::class);
+        return $this->HasOne(Subscription::class);
     }
 
 }

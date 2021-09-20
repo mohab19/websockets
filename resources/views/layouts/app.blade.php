@@ -16,6 +16,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style media="screen">
+        .topic {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: #C3C3C3;
+            text-decoration: none;
+            color: #333;
+        }
+        #data {
+            margin-top: 30px;
+        }
+        #data .block {
+            padding: 20px 35px;
+            background: #C3C3C3;
+        }
+        #data .block span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #data .block p {
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">

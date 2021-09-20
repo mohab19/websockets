@@ -21,6 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('topic/{channel}', [ChannelController::class, 'show']);
+Route::get('topic/{channel}', [ChannelController::class, 'show'])->name('topic');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

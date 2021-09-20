@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Broadcast;
 
 use App\Models\Subscription;
-//use App\Models\Channel;
+use App\Models\Channel;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +21,5 @@ use App\Models\Subscription;
 // });
 
 Broadcast::channel('topic.{channel}', function ($user, Channel $channel) {
-    return true;
+    return (int) $user->id === (int) $channel->Subscription->user_id;
 });
