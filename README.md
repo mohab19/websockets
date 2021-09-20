@@ -25,3 +25,14 @@ please make sure to add them in the ` .env ` file.<br>
 
 Also don't forget start the server on post:8000 like so:<br>
 	` php artisan serve --port:8000 `<br>
+
+### How to use:
+
+First you need to migrate the database files by executing the following command :<br>
+	` php artisan migrate `
+
+Also it's best to seed some data into users table by executing:
+	` php artisan db:seed `
+
+There's a postman collection file included in the repository to help
+use the created APIs.
